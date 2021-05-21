@@ -25,5 +25,11 @@ with open(arguement[1]) as f:
            del_req = utility.delete_request(i['url'], i['header'])
            utility.request_assert(del_req.status_code, i['check']['success_code'])
 
+        elif (i['type'].lower() == 'put'):
+            put_req = utility.put_request(i['url'], i['body'], i['header'])
+            get_req = utility.get_request(i['check']['url'], i['header'])
+            utility.request_assert(put_req.status_code, i['check']['success_code'])
+            utility.request_assert(get_req.status_code, 200)
+
         x += 1
 

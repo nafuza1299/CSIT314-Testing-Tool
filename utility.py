@@ -25,6 +25,16 @@ def delete_request(url, headers):
     print("DELETE REQUEST: ", res.status_code)
     return res
 
+# put request
+def put_request(url, data, headers):
+    body = json.dumps(data)
+    res = requests.put(url, headers = headers, data = body)
+    get_Content = json.loads(res.content)
+    print("PUT REQUEST: ", res.status_code)
+    print("PUT CONTENT: ", get_Content)
+    return res
+
 #assert code
 def request_assert(res, code):
     assert int(res) == int(code)
+
