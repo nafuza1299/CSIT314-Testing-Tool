@@ -21,6 +21,10 @@ def test_post_request():
     assert res.json() == answer
     assert res.status_code == 201
 
+    # try again to get code 409 (resource already found error)
+    res2 = utility.post_request('https://csit314-testing-tool.herokuapp.com/contacts', {"contact":{"id":"asdf","first":"yes","last":"wow"}}, {'Content-Type': 'application/json', 'Authorization' : 'ae34g1ce'})
+    assert res2.status_code == 409
+
 # test put request using asdf as id. changes values to first=nice last=one
 def test_put_request():
     res = utility.put_request("https://csit314-testing-tool.herokuapp.com/contacts/asdf", {"contact":{"first":"nice","last":"one"}}, {'Content-Type': 'application/json', 'Authorization' : 'ae34g1ce'})
@@ -35,8 +39,8 @@ def test_delete_request():
     res = utility.delete_request("https://csit314-testing-tool.herokuapp.com/contacts/asdf", {'Authorization' : 'ae34g1ce'})
     assert res.status_code == 200
 
-    # res2 = utility.get_request('https://csit314-testing-tool.herokuapp.com/contacts/asdf', {'Authorization' : 'ae34g1ce'})
-    # print(res2.content)
+    res2 = utility.get_request('https://csit314-testing-tool.herokuapp.com/contacts/asdf', {'Authorization' : 'ae34g1ce'})
+    assert res2.status_code == 404
 
 
 # test_post_request()
