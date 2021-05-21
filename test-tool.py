@@ -9,13 +9,13 @@ with open(arguement[1]) as f:
     x = 1
     for i in data:
         print("Test", x)
-
         if(i['type'].lower() == 'post'):
             post_req = utility.post_request(i['url'], i['body'], i['header'])
             check_url = i['check']['url'].replace('{{id}}', i['body']['contact']['id'])
             get_req = utility.get_request(check_url, i['header'])
             utility.request_assert(post_req.status_code, i['check']['success_code'])
             utility.request_assert(get_req.status_code, 200)
+            utility.content_assert(i['body'], get_req)
 
         elif(i['type'].lower() == 'get'):
            get_req = utility.get_request(i['url'], i['header'])
@@ -30,6 +30,8 @@ with open(arguement[1]) as f:
             get_req = utility.get_request(i['check']['url'], i['header'])
             utility.request_assert(put_req.status_code, i['check']['success_code'])
             utility.request_assert(get_req.status_code, 200)
+            utility.content_assert(i['body'], get_req)
+
 
         x += 1
 
