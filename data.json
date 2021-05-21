@@ -17,5 +17,16 @@
             "url":"https://csit314-testing-tool.herokuapp.com/contacts/{{id}}",
             "success_code":"201"
         }
-    }
+    },
+    {
+          "url":"https://csit314-testing-tool.herokuapp.com/contacts/sq0cq",
+          "type":"DELETE",
+          "header" :{
+              "Authorization":"ae34g1ce"
+          },
+          "check":{
+              "url":"https://csit314-testing-tool.herokuapp.com/contacts/sq0cq",
+              "success_code":"201"
+          }
+      }
 ]

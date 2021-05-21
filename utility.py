@@ -3,8 +3,8 @@ import requests
 import json
 
 
+# get request
 def get_request(url, headers):
-    #get request
     res = requests.get(url, headers = headers)
     get_Content = json.loads(res.content)
     print("GET REQUEST: ", res)
@@ -18,4 +18,9 @@ def post_request(url, data, headers):
     print("POST REQUEST: ", res)
     print("POST CONTENT: ", get_Content)
 
+
+# delete request
+def delete_request(url, headers):
+    res = requests.delete(url, headers = headers)
+    print("DELETE REQUEST: ", res)
 
