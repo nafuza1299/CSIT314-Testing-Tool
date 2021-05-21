@@ -1,8 +1,20 @@
 import pytest
 import requests
+import json
 
-
-url = "https://csit314-testing-tool.herokuapp.com"
+#get request
+url = "https://csit314-testing-tool.herokuapp.com/contacts"
 res = requests.get(url)
-
-print(res)
+get_Content = json.loads(res.content)['contacts']
+print(get_Content)
+#post request
+data = {
+  "contact":
+    {
+        "id": "tseter",
+        "first": "Test",
+        "last": "Test2"
+    }
+}
+x = requests.post(url, data = data)
+print(x)
