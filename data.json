@@ -2,26 +2,19 @@
     {
         "url":"https://csit314-testing-tool.herokuapp.com/contacts",
         "type":"POST",
+        "header" :{
+            "Content-Type":"application/json",
+            "Authorization":"ae34g1ce"
+        },
         "body":{
-            "id":"int",
-            "first":"string",
-            "last":"string"
+            "contact":{
+                "id":"int",
+                "first":"string",
+                "last":"string"
+            }
         },
         "check":{
-            "url":"https://csit314-testing-tool.herokuapp.com/{{id}}",
-            "success_code":"201"
-        }
-    },
-    {
-        "url":"https://csit314-testing-tool.herokuapp.com/contacts",
-        "type":"POST",
-        "body":{
-            "id":"int",
-            "first":"string",
-            "last":"string"
-        },
-        "check":{
-            "url":"https://csit314-testing-tool.herokuapp.com/{{id}}",
+            "url":"https://csit314-testing-tool.herokuapp.com/contacts/{{id}}",
             "success_code":"201"
         }
     }
