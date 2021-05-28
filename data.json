@@ -27,7 +27,7 @@
         },
         "check":{
             "url":"https://csit314-testing-tool.herokuapp.com/contacts/sq0cq",
-            "success_code":"404"
+            "success_code":"200"
         }
     },
     {

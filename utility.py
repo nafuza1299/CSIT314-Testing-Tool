@@ -37,7 +37,11 @@ def put_request(url, data, headers):
 
 #assert code
 def request_assert(res, code):
-    assert int(res) == int(code)
+    try:
+        assert int(res) == int(code)
+    except:
+        raise AssertionError("Status Code Error: " + str(res) + " " + str(code))
+    
 
 #assert content
 def content_assert(input, output):
@@ -45,10 +49,19 @@ def content_assert(input, output):
     get_Content = json.loads(output.content)
 
     #loop through the content body
-    for key in input:
-        output = get_Content[key]
-        input = input[key]
-        for i in input:
-            input_data = input[i]
-            output_data = output[i]
-            assert str(input_data) == str(output_data)
+    try:
+        for key in input:
+            output = get_Content[key]
+            input = input[key]
+            for i in input:
+                input_data = input[i]
+                output_data = output[i]
+                assert str(input_data) == str(output_data)
+    except:
+        raise AssertionError("Content Error: \n" + str(input) + "\nAnd\n" + str(output))
+
+def generate_pass_msg(num):
+    return "Test " + str(num) + " passed"
+
+def generate_error_msg(num, error):
+    return "Test " + str(num) + " " + str(error)
