@@ -1,0 +1,50 @@
+[
+    {
+        "url": "https://csit314-testing-tool.herokuapp.com/contacts",
+        "type": "POST",
+        "header": {
+            "Content-Type": "application/json",
+            "Authorization": "ae34g1ce"
+        },
+        "body": {
+            "contact": {
+                "id": 9331,
+                "first": "ifgdOxfMDHEmDPTaAlGd",
+                "last": "MBwBvdDgZLsGeDwdrmcN"
+            }
+        },
+        "check": {
+            "url": "https://csit314-testing-tool.herokuapp.com/contacts/9331",
+            "success_code": "201"
+        }
+    },
+    {
+        "url": "https://csit314-testing-tool.herokuapp.com/contacts/sq0cq",
+        "type": "DELETE",
+        "header": {
+            "Authorization": "ae34g1ce"
+        },
+        "check": {
+            "url": "https://csit314-testing-tool.herokuapp.com/contacts/sq0cq",
+            "success_code": "200"
+        }
+    },
+    {
+        "url": "https://csit314-testing-tool.herokuapp.com/contacts/ert243234er",
+        "type": "PUT",
+        "header": {
+            "Content-Type": "application/json",
+            "Authorization": "ae34g1ce"
+        },
+        "body": {
+            "contact": {
+                "first": "TsrfLFOGZqelnYKYsHpm",
+                "last": "gfhRPDdlCJGmuIXMLGdx"
+            }
+        },
+        "check": {
+            "url": "https://csit314-testing-tool.herokuapp.com/contacts/ert243234er",
+            "success_code": "200"
+        }
+    }
+]
