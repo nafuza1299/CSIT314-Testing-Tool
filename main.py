@@ -1,6 +1,7 @@
 import case_generator
 import test_tool
 
+
 def main():
     flag = True
     while flag:
@@ -8,14 +9,23 @@ def main():
 
         if(user_input == "1"):
             json_file = str(input("Select JSON file for input\n"))
-            options = str(input("\nDo you want to generate DELETE cases?(Y/N) \n"))
+            option_1 = str(input("\nDo you want to generate DELETE cases?(Y/N) \n"))
+            option_2 = str(input("\nDo you want to generate PUT cases?(Y/N) \n"))
+            id = str(input("\nID Key"))
 
-            if(options.lower() == "y"):
-                id =  str(input("ID Key"))
-                case_generator.run_generation(json_file,[1], id)
+            if(option_1.lower() == "y"):
+                option_1 = 1
 
-            elif(options.lower() == "n"):
-                case_generator.run_generation(json_file, [0])
+            elif(option_1.lower() == "n"):
+                option_1 = 0
+
+            if (option_2.lower() == "y"):
+                option_2 = 1
+
+            elif (option_2.lower() == "n"):
+                option_2 = 0
+
+            case_generator.run_generation(json_file, id, option_1, option_2)
 
 
 

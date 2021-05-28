@@ -19,7 +19,7 @@ def put_generate(dict_put, i, body_key, id):
     return dict_put
 
 
-def run_generation(json_file, options = 0, id = None):
+def run_generation(json_file,  id = None, del_option = 0, put_option = 0):
     fake = Faker()
 
     # Opening JSON file
@@ -78,12 +78,12 @@ def run_generation(json_file, options = 0, id = None):
                     i['body'][body_key][x] = fake.pystr()
 
             #if option = 1, generate delete cases for post req
-            if (options == 1 and id in i['body'][body_key]):
+            if (del_option == 1 and id in i['body'][body_key]):
                 dict_delete = delete_generate(dict_delete, i, body_key, id)
                 data.append(dict_delete)
 
             #if option = 2, generate put cases for post req
-            if (options == 2 and body_key in i['body']):
+            if (put_option == 1 and body_key in i['body']):
                 dict_put = put_generate(dict_put, i, body_key, id)
                 data.append(dict_put)
 
