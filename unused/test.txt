@@ -1,0 +1,10 @@
+body : {
+    contact {
+        id : int
+        first : string
+        last : string
+    }
+}
+Another {
+    whatever
+}
