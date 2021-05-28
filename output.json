@@ -2,19 +2,20 @@
     {
         "url": "https://csit314-testing-tool.herokuapp.com/contacts",
         "type": "POST",
+        "count": "10",
         "header": {
             "Content-Type": "application/json",
             "Authorization": "ae34g1ce"
         },
         "body": {
             "contact": {
-                "id": 4128,
-                "first": "MauFrTNVJNMmNvqwqsbt",
-                "last": "skYQSlBSoIAbgGHjzlFH"
+                "id": 3653,
+                "first": "tKcRkxOYlmYmpOJVjBAY",
+                "last": "MECliEgvQnimbsBTxTRr"
             }
         },
         "check": {
-            "url": "https://csit314-testing-tool.herokuapp.com/contacts/4128",
+            "url": "https://csit314-testing-tool.herokuapp.com/contacts/3653",
             "success_code": "201"
         }
     },
@@ -48,7 +49,19 @@
         }
     },
     {
-        "url": "https://csit314-testing-tool.herokuapp.com/contacts/4128",
+        "url": "https://csit314-testing-tool.herokuapp.com/contacts/3653",
+        "type": "DELETE",
+        "header": {
+            "Content-Type": "application/json",
+            "Authorization": "ae34g1ce"
+        },
+        "check": {
+            "url": "https://csit314-testing-tool.herokuapp.com/contacts/3653",
+            "success_code": "200"
+        }
+    },
+    {
+        "url": "https://csit314-testing-tool.herokuapp.com/contacts/3653",
         "type": "PUT",
         "header": {
             "Content-Type": "application/json",
@@ -56,12 +69,12 @@
         },
         "body": {
             "contact": {
-                "first": "MauFrTNVJNMmNvqwqsbt",
-                "last": "skYQSlBSoIAbgGHjzlFH"
+                "first": "tKcRkxOYlmYmpOJVjBAY",
+                "last": "MECliEgvQnimbsBTxTRr"
             }
         },
         "check": {
-            "url": "https://csit314-testing-tool.herokuapp.com/contacts/4128",
+            "url": "https://csit314-testing-tool.herokuapp.com/contacts/3653",
             "success_code": "200"
         }
     }

@@ -11,7 +11,7 @@ def main():
             json_file = str(input("Select JSON file for input\n"))
             option_1 = str(input("\nDo you want to generate DELETE cases?(Y/N) \n"))
             option_2 = str(input("\nDo you want to generate PUT cases?(Y/N) \n"))
-            id = str(input("\nID Key"))
+            id = str(input("\nID Key\n"))
 
             if(option_1.lower() == "y"):
                 option_1 = 1
@@ -27,12 +27,10 @@ def main():
 
             case_generator.run_generation(json_file, id, option_1, option_2)
 
-
-
         elif (user_input == "2"):
             test_tool.testing_tool()
+
         elif(user_input == "3"):
             flag = False
-            break
 
 main()
