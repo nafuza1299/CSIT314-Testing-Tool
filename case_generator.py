@@ -1,10 +1,17 @@
 import json
 from faker import Faker
 
-#input dictionary values for deletion
+'''
+Tool used to generate random parameters and test cases from specified JSON.
+Outputs the JSON into output.json.
+
+'''
+
+
+# input dictionary values for deletion
 def delete_generate(i, body_key, id):
     
-    #template for deletion
+    # template for deletion
     dict_delete =   {
         "url": None,
         "type":"DELETE",
@@ -25,7 +32,7 @@ def delete_generate(i, body_key, id):
             dict_delete['header'] = dict_header
     return dict_delete
 
-#input dictionary values for updating
+# input dictionary values for updating
 def put_generate(i, body_key, id):
     
     #template for updating
@@ -54,7 +61,7 @@ def put_generate(i, body_key, id):
     dict_put["header"] = i["header"]
     return dict_put
 
-
+# main function for generating test cases
 def run_generation(json_file,  id = None, del_option = 0, put_option = 0):
     fake = Faker()
 

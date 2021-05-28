@@ -1,6 +1,11 @@
 import case_generator
 import API_tester
 
+'''
+Testing tool for APIs.
+Can generate and run test cases based on specified JSON.
+
+'''
 
 def main():
     flag = True
