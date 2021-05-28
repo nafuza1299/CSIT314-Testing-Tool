@@ -11,15 +11,20 @@ def testing_tool():
             print("Test", x) #counter
             #if post request
             if(i['type'].lower() == 'post'):
-                #send post request
-                post_req = utility.post_request(i['url'], i['body'], i['header'])
-                # check_url = i['check']['url'].replace('{{id}}', i['body']['contact']['id'])
-                get_req = utility.get_request(i['check']['url'], i['header'])
+                if 'count' in i:
+                    count = int(i['count'])
+                else:
+                    count = 1
+                for x in range(0, count):
+                    #send post request
+                    post_req = utility.post_request(i['url'], i['body'], i['header'])
+                    # check_url = i['check']['url'].replace('{{id}}', i['body']['contact']['id'])
+                    get_req = utility.get_request(i['check']['url'], i['header'])
 
-                #assert for response code and content
-                utility.request_assert(post_req.status_code, i['check']['success_code'])
-                utility.request_assert(get_req.status_code, 200)
-                utility.content_assert(i['body'], get_req)
+                    #assert for response code and content
+                    utility.request_assert(post_req.status_code, i['check']['success_code'])
+                    utility.request_assert(get_req.status_code, 200)
+                    utility.content_assert(i['body'], get_req)
 
             elif(i['type'].lower() == 'get'):
                 #send get request

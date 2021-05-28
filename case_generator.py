@@ -28,8 +28,6 @@ def run_generation(json_file,  id = None, del_option = 0, put_option = 0):
     # returns JSON object as a dictionary
     data = json.load(f)
 
-
-
     #template for deletion
     dict_delete =   {
         "url": None,
