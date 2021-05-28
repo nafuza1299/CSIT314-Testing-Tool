@@ -13,13 +13,16 @@ def delete_generate(i, body_key, id):
         },
         "check":{
             "url": None,
-            "success_code":"404"
+            "success_code":"200"
         }
     }
 
     dict_delete["url"] =  i['url'] + "/" + str(i['body'][body_key][id])
     dict_delete["check"]["url"] =  i['url'] + "/" + str(i['body'][body_key][id])
-    dict_delete["header"] = i["header"]
+    for x in i["header"]:
+        if(x != "Content-Type"):
+            dict_header = {x: i['header'][x]}
+            dict_delete['header'] = dict_header
     return dict_delete
 
 #input dictionary values for updating
