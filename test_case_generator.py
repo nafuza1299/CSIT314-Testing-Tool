@@ -2,7 +2,7 @@ import case_generator
 import json
 
 #test result from delete generate dict using post request, contact and id
-def delete_generate():
+def test_delete_generation():
     data = {
         "url": "https://csit314-testing-tool.herokuapp.com/contacts",
         "type": "POST",
@@ -29,7 +29,7 @@ def delete_generate():
 
 
 #test result from put generate dict using post request, contact and id
-def put_generate():
+def test_put_generation():
     data = {
         "url": "https://csit314-testing-tool.herokuapp.com/contacts",
         "type": "POST",
@@ -53,4 +53,3 @@ def put_generate():
     answer = {'url': 'https://csit314-testing-tool.herokuapp.com/contacts/999', 'type': 'PUT', 'header': {'Content-Type': 'application/json', 'Authorization': 'ae34g1ce'}, 'body': {'contact': {'first': 'FFEeoeGynvucKklsPuwM', 'last': 'fdTZqbsAuNFOymGMGFKC'}}, 'check': {'url': 'https://csit314-testing-tool.herokuapp.com/contacts/999', 'success_code': '200'}}
     assert json.dumps(res) == json.dumps(answer)
     assert res == answer
-put_generate()
