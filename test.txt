@@ -1,5 +1,0 @@
-Contacts
-    name : Dumac
-    dilon : whatever
-Another
-    whatever
