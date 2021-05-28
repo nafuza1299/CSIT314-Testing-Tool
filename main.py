@@ -1,5 +1,5 @@
 import case_generator
-import test_tool
+import API_tester
 
 
 def main():
@@ -28,7 +28,7 @@ def main():
             case_generator.run_generation(json_file, id, option_1, option_2)
 
         elif (user_input == "2"):
-            test_tool.testing_tool()
+            API_tester.testing_tool()
 
         elif(user_input == "3"):
             flag = False
