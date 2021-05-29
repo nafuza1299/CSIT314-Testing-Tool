@@ -19,7 +19,7 @@ def testing_tool(jsonfile = "output.json"):
         data = json.load(f)
         x = 1
         for i in data:
-            print("Test", x) #counter
+            print("\nTest", x) #counter
             
             # post request case
             if(i['type'].lower() == 'post'):
@@ -74,7 +74,6 @@ def testing_tool(jsonfile = "output.json"):
             elif (i['type'].lower() == 'put'):
                 # send put request
                 put_req = generate_request.put_request(i['url'], i['body'], i['header'])
-                print(i['body'])
                 get_req = generate_request.get_request(i['check']['url'], i['header'])
 
                 
