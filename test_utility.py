@@ -4,7 +4,7 @@ import generate_request
 Unit tests for utility.py.
 '''
 
-# test put request using asdf as id. changes values to first=nice last=one
+# test request assert by using response code 200
 def test_request_assert():
    res = utility.request_assert(200, 200)
    assert res == None
