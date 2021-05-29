@@ -13,7 +13,7 @@ def testing_tool(jsonfile = "output.json"):
 
     # variable used to store failed and passed messages
     results_list = []
-
+    failure_counter = 0
     # open json file to be tested
     with open(jsonfile) as f:
         data = json.load(f)
@@ -38,6 +38,7 @@ def testing_tool(jsonfile = "output.json"):
                     
                 except Exception as e:
                     results_list.append(utility.generate_error_msg(x, e))
+                    failure_counter += 1
 
             # get request case
             elif(i['type'].lower() == 'get'):
@@ -51,6 +52,7 @@ def testing_tool(jsonfile = "output.json"):
                     
                 except Exception as e:
                     results_list.append(utility.generate_error_msg(x, e))
+                    failure_counter += 1
 
             # delete request case
             elif (i['type'].lower() == 'delete'):
@@ -66,11 +68,13 @@ def testing_tool(jsonfile = "output.json"):
                     
                 except AssertionError as e:
                     results_list.append(utility.generate_error_msg(x, e))
+                    failure_counter += 1
                 
             # put request case
             elif (i['type'].lower() == 'put'):
                 # send put request
                 put_req = generate_request.put_request(i['url'], i['body'], i['header'])
+                print(i['body'])
                 get_req = generate_request.get_request(i['check']['url'], i['header'])
 
                 
@@ -83,12 +87,16 @@ def testing_tool(jsonfile = "output.json"):
                     
                 except Exception as e:
                     results_list.append(utility.generate_error_msg(x,e))
+                    failure_counter += 1
                 
             x += 1
 
     print("\nTest Summary:")
     for i in results_list:
         print(i)
+    success_rate = failure_counter/len(results_list)
+    print("\nSuccess: "+str(len(results_list)-failure_counter)+"\nFailed: "+str(failure_counter))
+    print("Success Rate: "+str(100 - (success_rate * 100))+str("%"))
 
 # allows tool to function in cli by passing jsonfile argument
 if len(sys.argv) > 1:
