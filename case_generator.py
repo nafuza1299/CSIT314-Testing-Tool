@@ -22,7 +22,7 @@ def post_generate(i, body_key, id):
         },
         "check": {
             "url": None,
-            "success_code": "200"
+            "success_code": "201"
         }
     }
 
@@ -51,7 +51,7 @@ def delete_generate(i, body_key, id):
         },
         "check":{
             "url": None,
-            "success_code":"201"
+            "success_code":"200"
         }
     }
 

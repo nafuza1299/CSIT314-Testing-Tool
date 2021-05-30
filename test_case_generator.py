@@ -53,7 +53,7 @@ def test_put_generation():
     answer = {'url': 'https://csit314-testing-tool.herokuapp.com/contacts/999', 'type': 'PUT', 'header': {'Content-Type': 'application/json', 'Authorization': 'ae34g1ce'}, 'body': {'contact': {'first': 'FFEeoeGynvucKklsPuwM', 'last': 'fdTZqbsAuNFOymGMGFKC'}}, 'check': {'url': 'https://csit314-testing-tool.herokuapp.com/contacts/999', 'success_code': '200'}}
     assert json.dumps(res) == json.dumps(answer)
     assert res == answer
-    
+
 #assert dictionary key of post generation, as post generates random value
 def test_post_generation():
     data = {
